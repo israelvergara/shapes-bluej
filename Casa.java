@@ -13,6 +13,7 @@ class Casa
     Triangle techo;
     Square pared;
     Square puerta;
+    Casa casa2;
 
 Casa()
 {
@@ -20,6 +21,7 @@ Casa()
     techo =  new Triangle();
     pared = new Square();
     puerta = new Square();
+    
 }
 
 void dibujate()
@@ -30,39 +32,38 @@ void dibujate()
     puerta.makeVisible();
 }
 
-void acomodate()
+void acomodate(int desplazar)
 {   
-    ventana.moveRight();
-    ventana.moveRight();
-    ventana.moveRight();
-    ventana.slowMoveHorizontal(20);
+    ventana.moveHorizontal(30+desplazar);
+    ventana.moveDown();
+    ventana.moveVertical(-28);
     
-    techo.moveRight();
-    techo.moveRight();
-    techo.changeSize(130,130);
-    techo.moveRight();
+    techo.moveHorizontal(15+desplazar);
+    techo.changeSize(87,87);
+    techo.moveVertical(-16);
     
     ventana.makeVisible();
-    ventana.moveDown();
-    ventana.moveDown();
-    ventana.moveHorizontal(-5);
-    
-    pared.changeSize(130);
+      
+    pared.changeSize(80);
     pared.moveDown();
     pared.moveDown();
-    pared.moveDown();
-    pared.moveDown();
-    pared.moveDown();
-    pared.moveHorizontal(-16);
+    pared.moveHorizontal(-35+desplazar);
     pared.moveVertical(-5);
     
     puerta.changeColor("black");
-    puerta.moveVertical(195);
-    puerta.moveHorizontal(50);
+    puerta.moveVertical(85);
+    puerta.moveHorizontal(10+desplazar);
            
     
 }
 
+void casa2(int y)
+{
+    casa2 = new Casa();
+    
+    casa2.dibujate();
+    casa2.acomodate(y);
+}
 
 
 }
